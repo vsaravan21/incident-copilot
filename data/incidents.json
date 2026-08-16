@@ -1,0 +1,263 @@
+[
+  {
+    "id": "INC-101",
+    "title": "429 spikes on bursty batch workloads",
+    "date": "2026-01-14",
+    "product": "Serverless Inference",
+    "summary": "Several customers saw bursts of HTTP 429 responses when batch-style jobs suddenly increased concurrency.",
+    "symptoms": [
+      "429 responses clustered within 1-3 minute bursts",
+      "Interactive traffic was mostly unaffected",
+      "Retries without jitter caused repeated throttling"
+    ],
+    "root_cause": "A concurrency protection limit was reached during synchronized bursts. Several client retry loops retried immediately, amplifying the spike.",
+    "resolution": "Support recommended exponential backoff with jitter and helped affected customers smooth concurrency. Capacity policy was adjusted for the affected pool.",
+    "support_notes": "First check whether 429s correlate with a sudden concurrency increase. Ask for retry behavior and whether requests are bursty or steady.",
+    "tags": [
+      "429",
+      "rate-limit",
+      "concurrency",
+      "retries",
+      "serverless"
+    ]
+  },
+  {
+    "id": "INC-102",
+    "title": "High TTFT after large prompt rollout",
+    "date": "2026-02-03",
+    "product": "Serverless Inference",
+    "summary": "A customer reported a sharp increase in time-to-first-token after shipping much larger system prompts.",
+    "symptoms": [
+      "TTFT increased while inter-token latency remained stable",
+      "Prompt lengths roughly tripled",
+      "Generation lengths did not materially change"
+    ],
+    "root_cause": "The workload became prefill-heavy. Larger uncached prompts increased prefill compute and delayed first-token delivery.",
+    "resolution": "The customer reduced repeated prompt content and enabled prompt-prefix reuse where applicable.",
+    "support_notes": "Separate TTFT from decode speed. Inspect prompt length and repeated prefixes before assuming a general serving regression.",
+    "tags": [
+      "latency",
+      "ttft",
+      "prefill",
+      "prompt",
+      "cache"
+    ]
+  },
+  {
+    "id": "INC-103",
+    "title": "Streaming pauses during slow client consumption",
+    "date": "2026-02-26",
+    "product": "API",
+    "summary": "Users described streaming responses as 'stalling' even though model generation remained healthy.",
+    "symptoms": [
+      "Server-side generation metrics looked normal",
+      "Pauses were more common on mobile and constrained networks",
+      "Disconnects sometimes occurred after long pauses"
+    ],
+    "root_cause": "Client-side consumption was slower than token production, creating backpressure between the API stream and downstream application.",
+    "resolution": "The customer fixed stream consumption and cancellation handling and reduced unnecessary buffering.",
+    "support_notes": "Check whether the stall is model-side or downstream. Compare server generation timing with client receive timing.",
+    "tags": [
+      "streaming",
+      "backpressure",
+      "client",
+      "latency",
+      "api"
+    ]
+  },
+  {
+    "id": "INC-104",
+    "title": "Unexpected output format broke downstream parser",
+    "date": "2026-03-11",
+    "product": "API",
+    "summary": "An extraction workflow occasionally returned valid prose instead of the JSON shape expected by the application.",
+    "symptoms": [
+      "Most requests succeeded",
+      "Failures appeared as JSON parse errors",
+      "Prompt-only formatting instructions were used"
+    ],
+    "root_cause": "The application relied on natural-language formatting instructions rather than schema-constrained structured output.",
+    "resolution": "The workflow moved to schema-constrained structured outputs and added validation before downstream use.",
+    "support_notes": "When a parser assumes a contract, prefer structured outputs and validate the response rather than relying on prompt wording alone.",
+    "tags": [
+      "structured-output",
+      "json",
+      "reliability",
+      "api"
+    ]
+  },
+  {
+    "id": "INC-105",
+    "title": "Retrieval assistant cites irrelevant policy document",
+    "date": "2026-03-29",
+    "product": "Customer Application",
+    "summary": "A RAG assistant produced fluent answers grounded in a semantically related but wrong policy version.",
+    "symptoms": [
+      "Answer sounded plausible",
+      "Citation pointed to an obsolete policy",
+      "Top retrieved chunks shared vocabulary with the query"
+    ],
+    "root_cause": "Retrieval did not filter by document version and the reranking stage lacked metadata awareness.",
+    "resolution": "The customer added version metadata filtering before reranking and required answers to surface source identifiers.",
+    "support_notes": "Retrieval quality is not just embedding similarity. Check metadata filters, reranking, and whether the answer exposes its evidence.",
+    "tags": [
+      "rag",
+      "retrieval",
+      "reranking",
+      "citations",
+      "metadata"
+    ]
+  },
+  {
+    "id": "INC-106",
+    "title": "Tool-calling agent loops on the same action",
+    "date": "2026-04-07",
+    "product": "Customer Application",
+    "summary": "An agent repeatedly called the same search tool with near-identical arguments and failed to converge.",
+    "symptoms": [
+      "Repeated tool calls with minimal query changes",
+      "Latency and token usage increased rapidly",
+      "Final answer was sometimes never produced"
+    ],
+    "root_cause": "The agent loop had no explicit termination policy, no duplicate-call guard, and weak tool-result summarization.",
+    "resolution": "The customer capped tool steps, rejected duplicate calls, and supplied concise tool results back to the model.",
+    "support_notes": "For agent loops, inspect step limits, duplicate actions, tool-result size, and explicit conditions for returning a final answer.",
+    "tags": [
+      "agents",
+      "tool-calling",
+      "loops",
+      "latency",
+      "cost"
+    ]
+  },
+  {
+    "id": "INC-107",
+    "title": "Latency regression after model switch",
+    "date": "2026-05-02",
+    "product": "Serverless Inference",
+    "summary": "A team switched to a larger model and reported worse end-to-end latency despite similar request volume.",
+    "symptoms": [
+      "Both TTFT and generation time increased",
+      "Prompt sizes stayed approximately constant",
+      "The new model generated somewhat longer answers"
+    ],
+    "root_cause": "The chosen model had a materially different serving profile and the application did not adjust max output length or model choice by task complexity.",
+    "resolution": "The customer introduced simple model routing and tighter output limits for lightweight requests.",
+    "support_notes": "Do not treat all latency regressions as infrastructure incidents. Compare model, prompt, output length, and workload mix.",
+    "tags": [
+      "latency",
+      "model-routing",
+      "serverless",
+      "output-length"
+    ]
+  },
+  {
+    "id": "INC-108",
+    "title": "Repeated system prompt not benefiting from cache",
+    "date": "2026-05-19",
+    "product": "Serverless Inference",
+    "summary": "A customer expected repeated prompts to be cheap and fast but saw little improvement across requests.",
+    "symptoms": [
+      "Large common system instructions appeared on every request",
+      "Small request-to-request differences occurred near the beginning of the prompt",
+      "Cache hit behavior was lower than expected"
+    ],
+    "root_cause": "Dynamic content was inserted before the reusable prefix, preventing effective prefix reuse.",
+    "resolution": "The prompt was reorganized so stable instructions formed the shared prefix and dynamic content appeared later.",
+    "support_notes": "For prefix-cache issues, inspect exactly where dynamic tokens first diverge, not just whether the prompts look mostly identical.",
+    "tags": [
+      "cache",
+      "prefix",
+      "prompt",
+      "ttft",
+      "cost"
+    ]
+  },
+  {
+    "id": "INC-109",
+    "title": "Support bot answers confidently without evidence",
+    "date": "2026-06-08",
+    "product": "Customer Application",
+    "summary": "A support assistant answered questions that were not covered by its knowledge base instead of acknowledging missing evidence.",
+    "symptoms": [
+      "Answers were fluent but unsupported",
+      "No retrieval result threshold existed",
+      "The UI did not distinguish sourced and unsourced claims"
+    ],
+    "root_cause": "The application always forced an answer and lacked an evidence threshold or abstention behavior.",
+    "resolution": "The team added an insufficient-evidence path and required the model to ground factual answers in retrieved source IDs.",
+    "support_notes": "A trustworthy RAG product needs a graceful 'I don't have enough evidence' behavior.",
+    "tags": [
+      "rag",
+      "hallucination",
+      "grounding",
+      "citations",
+      "reliability"
+    ]
+  },
+  {
+    "id": "INC-110",
+    "title": "Agent slows down after verbose tool results",
+    "date": "2026-06-27",
+    "product": "Customer Application",
+    "summary": "An internal research agent became slower and more expensive as a session progressed.",
+    "symptoms": [
+      "Each tool response injected full raw documents",
+      "Context size grew every step",
+      "Later model calls were slower and more expensive"
+    ],
+    "root_cause": "Tool results were passed back verbatim instead of being scoped to the fields needed for the next decision.",
+    "resolution": "The team returned compact structured tool results and fetched full document content only when needed.",
+    "support_notes": "Keep tool results small. Return identifiers and relevant snippets first; fetch detail on demand.",
+    "tags": [
+      "agents",
+      "tool-calling",
+      "context",
+      "cost",
+      "latency"
+    ]
+  },
+  {
+    "id": "INC-111",
+    "title": "Citations mismatch after answer regeneration",
+    "date": "2026-07-09",
+    "product": "Customer Application",
+    "summary": "A document assistant sometimes showed citations that no longer matched claims after the final answer was regenerated.",
+    "symptoms": [
+      "Source list was generated in an earlier step",
+      "Final prose was regenerated separately",
+      "Some claims had no corresponding evidence"
+    ],
+    "root_cause": "Citation selection and answer generation were decoupled without a final grounding check.",
+    "resolution": "The response schema was changed so claims and source IDs were generated together and validated against retrieved IDs.",
+    "support_notes": "Bind claims to source identifiers in the same structured response, or run a final evidence-validation pass.",
+    "tags": [
+      "citations",
+      "structured-output",
+      "rag",
+      "grounding"
+    ]
+  },
+  {
+    "id": "INC-112",
+    "title": "Search tool returns too many low-value results",
+    "date": "2026-07-24",
+    "product": "Customer Application",
+    "summary": "An agent's search tool regularly returned 20 documents, overwhelming the model with partially relevant context.",
+    "symptoms": [
+      "Large tool payloads",
+      "Answers mixed multiple unrelated incidents",
+      "Higher latency with worse grounding"
+    ],
+    "root_cause": "The search tool optimized recall without controlling result count or relevance threshold.",
+    "resolution": "The team reduced default top-k, added score thresholds, and allowed the agent to refine the query when evidence was weak.",
+    "support_notes": "More context is not automatically better. Prefer a small relevant evidence set and let the agent search again if needed.",
+    "tags": [
+      "retrieval",
+      "agents",
+      "context",
+      "top-k",
+      "latency"
+    ]
+  }
+]

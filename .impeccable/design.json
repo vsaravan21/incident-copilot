@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-16T20:41:00.000Z",
+  "title": "Design System: Incident Copilot",
+  "extensions": {
+    "colorMeta": {
+      "case-violet": {
+        "role": "primary",
+        "displayName": "Case Violet",
+        "canonical": "oklch(0.44 0.15 292)",
+        "tonalRamp": [
+          "oklch(0.18 0.10 292)",
+          "oklch(0.28 0.13 292)",
+          "oklch(0.36 0.15 292)",
+          "oklch(0.44 0.15 292)",
+          "oklch(0.56 0.12 292)",
+          "oklch(0.70 0.08 292)",
+          "oklch(0.84 0.04 292)",
+          "oklch(0.95 0.015 292)"
+        ]
+      },
+      "case-violet-ink": {
+        "role": "primary",
+        "displayName": "Case Violet Ink",
+        "canonical": "oklch(0.99 0 0)",
+        "tonalRamp": [
+          "oklch(0.20 0 0)",
+          "oklch(0.32 0 0)",
+          "oklch(0.44 0 0)",
+          "oklch(0.56 0 0)",
+          "oklch(0.68 0 0)",
+          "oklch(0.80 0 0)",
+          "oklch(0.90 0 0)",
+          "oklch(0.99 0 0)"
+        ]
+      },
+      "desk": {
+        "role": "neutral",
+        "displayName": "Desk",
+        "canonical": "oklch(0.975 0.004 286)",
+        "tonalRamp": [
+          "oklch(0.18 0.012 286)",
+          "oklch(0.32 0.010 286)",
+          "oklch(0.48 0.008 286)",
+          "oklch(0.64 0.006 286)",
+          "oklch(0.80 0.005 286)",
+          "oklch(0.90 0.004 286)",
+          "oklch(0.975 0.004 286)",
+          "oklch(0.99 0.002 286)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.2 0.012 286)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 286)",
+          "oklch(0.20 0.012 286)",
+          "oklch(0.32 0.012 286)",
+          "oklch(0.44 0.014 286)",
+          "oklch(0.58 0.010 286)",
+          "oklch(0.72 0.008 286)",
+          "oklch(0.86 0.006 286)",
+          "oklch(0.96 0.004 286)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.20 0 0)",
+          "oklch(0.35 0 0)",
+          "oklch(0.50 0 0)",
+          "oklch(0.65 0 0)",
+          "oklch(0.78 0 0)",
+          "oklch(0.88 0 0)",
+          "oklch(0.95 0 0)",
+          "oklch(1 0 0)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Wash",
+        "canonical": "oklch(0.96 0.006 286)",
+        "tonalRamp": [
+          "oklch(0.22 0.012 286)",
+          "oklch(0.36 0.010 286)",
+          "oklch(0.50 0.008 286)",
+          "oklch(0.64 0.007 286)",
+          "oklch(0.78 0.006 286)",
+          "oklch(0.88 0.006 286)",
+          "oklch(0.96 0.006 286)",
+          "oklch(0.99 0.003 286)"
+        ]
+      },
+      "annotation": {
+        "role": "neutral",
+        "displayName": "Annotation",
+        "canonical": "oklch(0.44 0.014 286)",
+        "tonalRamp": [
+          "oklch(0.18 0.014 286)",
+          "oklch(0.28 0.014 286)",
+          "oklch(0.36 0.014 286)",
+          "oklch(0.44 0.014 286)",
+          "oklch(0.58 0.010 286)",
+          "oklch(0.72 0.008 286)",
+          "oklch(0.86 0.006 286)",
+          "oklch(0.95 0.004 286)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.905 0.008 286)",
+        "tonalRamp": [
+          "oklch(0.25 0.010 286)",
+          "oklch(0.40 0.010 286)",
+          "oklch(0.55 0.009 286)",
+          "oklch(0.70 0.008 286)",
+          "oklch(0.82 0.008 286)",
+          "oklch(0.905 0.008 286)",
+          "oklch(0.95 0.005 286)",
+          "oklch(0.99 0.002 286)"
+        ]
+      },
+      "failure": {
+        "role": "tertiary",
+        "displayName": "Failure",
+        "canonical": "oklch(0.55 0.18 27)",
+        "tonalRamp": [
+          "oklch(0.22 0.10 27)",
+          "oklch(0.32 0.14 27)",
+          "oklch(0.42 0.16 27)",
+          "oklch(0.55 0.18 27)",
+          "oklch(0.66 0.14 27)",
+          "oklch(0.78 0.08 27)",
+          "oklch(0.88 0.04 27)",
+          "oklch(0.96 0.015 27)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Product name and in-page section titles at 15px semibold."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Composer field label and sheet section labels at 13px semibold."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Assessment, plan steps, and sheet prose at 14px / 24px, max 65ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Meta, dates, helper copy, and status at 12px."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Incident IDs and zero-padded step indices."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet-lift",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Incident inspect sheet only. Resting paper has no shadow."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px color-mix(in oklab, oklch(0.44 0.15 292) 20%, transparent)",
+        "purpose": "Composer focus-within. Buttons use the same 3px ring at 50%."
+      }
+    ],
+    "motion": [
+      {
+        "name": "duration-state",
+        "value": "150ms",
+        "purpose": "Composer border/ring and evidence row hover/selection."
+      },
+      {
+        "name": "duration-overlay",
+        "value": "100ms",
+        "purpose": "Sheet overlay fade."
+      },
+      {
+        "name": "duration-sheet",
+        "value": "200ms ease-in-out",
+        "purpose": "Incident sheet slide in from the right."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Investigate — the only filled Case Violet control.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">Investigate</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; height: 28px; padding: 0 10px; border: 1px solid transparent; border-radius: var(--radius-md, 0.4rem); background: var(--primary); color: var(--primary-foreground); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; font-weight: 500; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color 150ms, box-shadow 150ms; } .ds-btn-primary:hover { background: color-mix(in oklab, var(--primary) 80%, transparent); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:disabled { opacity: 0.5; pointer-events: none; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Example prompts and Retry — hairline, desk fill, regular weight.",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\">TTFT increased after a prompt change</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 28px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--radius-md, 0.4rem); background: var(--background); color: var(--foreground); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; font-weight: 400; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color 150ms, box-shadow 150ms; } .ds-btn-outline:hover { background: var(--muted); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent); }"
+    },
+    {
+      "name": "Issue Composer",
+      "kind": "input",
+      "refersTo": "composer",
+      "description": "Paper panel with a hairline footer; Investigate sits in the footer, not on the page.",
+      "html": "<div class=\"ds-composer\"><label class=\"ds-composer-label\" for=\"ds-issue\">What is the customer seeing?</label><div class=\"ds-composer-panel\"><textarea id=\"ds-issue\" class=\"ds-composer-field\" placeholder=\"e.g. TTFT increased significantly after the customer changed their system prompt…\"></textarea><div class=\"ds-composer-footer\"><p class=\"ds-composer-hint\">Copilot searches historical incidents before it diagnoses.</p><button class=\"ds-btn-primary\" type=\"button\">Investigate</button></div></div></div>",
+      "css": ".ds-composer { font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; color: var(--foreground); } .ds-composer-label { display: block; font-size: 13px; font-weight: 500; } .ds-composer-panel { margin-top: 8px; border: 1px solid var(--border); border-radius: var(--radius-md, 0.4rem); background: #fff; transition: border-color 150ms, box-shadow 150ms; } .ds-composer-panel:focus-within { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 20%, transparent); } .ds-composer-field { display: block; width: 100%; min-height: 104px; padding: 10px 12px; border: 0; background: transparent; color: var(--foreground); font: 400 14px/24px var(--font-sans), ui-sans-serif, system-ui, sans-serif; resize: none; caret-color: var(--primary); } .ds-composer-field::placeholder { color: var(--muted-foreground); } .ds-composer-field:focus { outline: none; } .ds-composer-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; border-top: 1px solid var(--border); } .ds-composer-hint { margin: 0; font-size: 12px; color: var(--muted-foreground); } .ds-btn-primary { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border: 0; border-radius: var(--radius-md, 0.4rem); background: var(--primary); color: var(--primary-foreground); font-size: 0.8rem; font-weight: 500; cursor: pointer; } .ds-btn-primary:hover { background: color-mix(in oklab, var(--primary) 80%, transparent); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent); }"
+    },
+    {
+      "name": "Paper Panel",
+      "kind": "card",
+      "refersTo": "paper-panel",
+      "description": "White paper on the desk — case file, empty state, and error share this recipe.",
+      "html": "<section class=\"ds-paper\"><div class=\"ds-paper-head\"><h2 class=\"ds-paper-title\">Likely cause</h2><span class=\"ds-badge\">Historical match</span></div><p class=\"ds-paper-body\">Prefill grew after the system prompt change, which raised time-to-first-token on subsequent requests.</p></section>",
+      "css": ".ds-paper { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md, 0.4rem); background: #fff; padding: 16px; font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; color: var(--foreground); } .ds-paper-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; } .ds-paper-title { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.025em; } .ds-paper-body { margin: 8px 0 0; max-width: 65ch; font-size: 14px; line-height: 24px; } .ds-badge { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--radius-md, 0.4rem); font-size: 12px; font-weight: 400; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "status-badge",
+      "description": "Hairline rectangle at modest radius — never a pill.",
+      "html": "<span class=\"ds-badge\">Insufficient evidence</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--radius-md, 0.4rem); background: transparent; color: var(--foreground); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 400; white-space: nowrap; }"
+    },
+    {
+      "name": "Evidence Row",
+      "kind": "custom",
+      "refersTo": "evidence-row",
+      "description": "Cited incident in the case-file rail. Selected wash is Case Violet at 10%.",
+      "html": "<ul class=\"ds-evidence\"><li><button class=\"ds-evidence-row\" type=\"button\"><span class=\"ds-evidence-main\"><span class=\"ds-evidence-meta\"><span class=\"ds-evidence-id\">INC-104</span><span class=\"ds-evidence-date\">12 Mar 2026</span></span><span class=\"ds-evidence-title\">Streaming stall under backpressure</span></span><span class=\"ds-evidence-action\">Inspect</span></button></li><li><button class=\"ds-evidence-row is-selected\" type=\"button\"><span class=\"ds-evidence-main\"><span class=\"ds-evidence-meta\"><span class=\"ds-evidence-id\">INC-107</span><span class=\"ds-evidence-date\">04 Apr 2026</span></span><span class=\"ds-evidence-title\">TTFT regression after prompt expansion</span></span><span class=\"ds-evidence-action\">Inspect</span></button></li></ul>",
+      "css": ".ds-evidence { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; } .ds-evidence li + li { border-top: 1px solid var(--border); } .ds-evidence-row { display: flex; width: 100%; min-width: 0; align-items: center; gap: 12px; padding: 10px 0; border: 0; background: transparent; color: var(--foreground); text-align: left; cursor: pointer; transition: background-color 150ms; } .ds-evidence-row:hover, .ds-evidence-row:focus-visible { background: color-mix(in oklab, var(--muted) 80%, transparent); } .ds-evidence-row:focus-visible { outline: none; box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--ring) 40%, transparent); } .ds-evidence-row.is-selected { background: color-mix(in oklab, var(--primary) 10%, transparent); } .ds-evidence-main { flex: 1; min-width: 0; } .ds-evidence-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; } .ds-evidence-id { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; color: var(--muted-foreground); } .ds-evidence-row.is-selected .ds-evidence-id { color: var(--primary); } .ds-evidence-date { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted-foreground); } .ds-evidence-title { display: block; margin-top: 2px; overflow: hidden; font-size: 13px; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; } .ds-evidence-action { flex-shrink: 0; font-size: 12px; color: var(--muted-foreground); }"
+    },
+    {
+      "name": "Product Bar",
+      "kind": "nav",
+      "refersTo": "nav-product",
+      "description": "Compact header: paper stamp, 15px name, 12px corpus count.",
+      "html": "<header class=\"ds-bar\"><div class=\"ds-bar-brand\"><span class=\"ds-bar-mark\" aria-hidden=\"true\"></span><div><h1 class=\"ds-bar-title\">Incident Copilot</h1><p class=\"ds-bar-sub\">Historical evidence for customer investigations</p></div></div><p class=\"ds-bar-count\">12 incidents</p></header>",
+      "css": ".ds-bar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; color: var(--foreground); } .ds-bar-brand { display: flex; align-items: center; gap: 10px; } .ds-bar-mark { width: 24px; height: 24px; border: 1px solid var(--border); border-radius: 5px; background: #fff; } .ds-bar-title { margin: 0; font-size: 15px; font-weight: 600; line-height: 1; letter-spacing: -0.025em; } .ds-bar-sub, .ds-bar-count { margin: 4px 0 0; font-size: 12px; color: var(--muted-foreground); } .ds-bar-count { margin: 0; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Incident Sheet",
+      "kind": "custom",
+      "refersTo": "incident-sheet",
+      "description": "Right-edge source record: mono ID, 16px title, hairline-separated sections.",
+      "html": "<aside class=\"ds-sheet\"><header class=\"ds-sheet-head\"><p class=\"ds-sheet-id\">INC-107</p><h2 class=\"ds-sheet-title\">TTFT regression after prompt expansion</h2></header><div class=\"ds-sheet-body\"><dl class=\"ds-sheet-dl\"><dt>Product</dt><dd>Inference</dd><dt>Date</dt><dd>04 Apr 2026</dd></dl><hr class=\"ds-sheet-rule\" /><section><h3 class=\"ds-sheet-label\">Root cause</h3><p class=\"ds-sheet-prose\">A longer system prompt increased prefill, which delayed the first streamed token.</p></section></div></aside>",
+      "css": ".ds-sheet { width: 100%; max-width: 32rem; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md, 0.4rem); background: #fff; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; color: var(--foreground); } .ds-sheet-head { padding: 16px 20px; border-bottom: 1px solid var(--border); } .ds-sheet-id { margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; color: var(--muted-foreground); } .ds-sheet-title { margin: 4px 0 0; font-size: 16px; font-weight: 600; line-height: 1.375; } .ds-sheet-body { padding: 16px 20px; } .ds-sheet-dl { display: grid; grid-template-columns: 72px 1fr; gap: 8px 16px; margin: 0; font-size: 13px; } .ds-sheet-dl dt { color: var(--muted-foreground); } .ds-sheet-dl dd { margin: 0; } .ds-sheet-rule { margin: 16px 0; border: 0; border-top: 1px solid var(--border); } .ds-sheet-label { margin: 0; font-size: 13px; font-weight: 600; } .ds-sheet-prose { margin: 6px 0 0; font-size: 14px; line-height: 24px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Support Case File",
+    "overview": "Incident Copilot is a restrained Operate console: an off-white desk holding white paper, not a chatbot and not a marketing landing page. The engineer types what the customer is seeing, runs one investigation, and reads the likely cause, ordered next checks, and cited incidents as a single case file. Density is high; decoration is near zero. Geist at 12–15px does all of the work.\n\nThe world is paper on a desk. Surfaces are white rectangles with a 1px hairline. A single Fireworks-inspired violet is the only chromatic accent, reserved for the Investigate action, selected evidence, the caret, and focus. Historical IDs and step numbers sit in system mono so they read as file marks, not UI chrome.\n\nConfirmed visual rejections: chatbot bubbles, a hero or display type scale, a second accent, pill-shaped tags, and resting drop shadows on paper.",
+    "keyCharacteristics": [
+      "Off-white desk, white paper panels, 1px hairline borders",
+      "Geist only; 15px semibold is the in-page title ceiling",
+      "One violet, used as action and selection — never as a panel fill",
+      "Flat paper at rest; a right sheet is the only lifted surface",
+      "Compact product bar, composer first, two-column case file below"
+    ],
+    "rules": [
+      {
+        "name": "The One Violet Rule",
+        "body": "Case Violet is the only chromatic accent. It appears on Investigate, the selected evidence row, the caret, focus rings, and selection highlight. It does not fill headers, panels, or backgrounds.",
+        "section": "colors"
+      },
+      {
+        "name": "The Console Scale Rule",
+        "body": "There is no display face. 15px semibold is the ceiling for titles on the desk. Body never exceeds 14px / 24px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Paper Rule",
+        "body": "Paper is flat at rest. Do not add drop shadows to the composer, case file, or error panel. Lift is reserved for the inspect sheet.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do sit white paper on the off-white desk with a 1px hairline and `0.4rem` corners.",
+      "Do keep titles at 15px semibold and body at 14px / 24px, wrapping assessment copy at 65ch.",
+      "Do reserve Case Violet for Investigate, selected evidence, caret, and focus.",
+      "Do mark incident IDs and step indices in 12px tabular mono.",
+      "Do inspect a cited incident in a right sheet; keep the case file on screen."
+    ],
+    "donts": [
+      "Don't use chatbot bubbles, a hero, or any type larger than 16px.",
+      "Don't introduce a second accent or fill chrome with Case Violet.",
+      "Don't drop-shadow resting paper (composer, case file, error panel).",
+      "Don't use pill badges; tags and status stay modest-radius rectangles.",
+      "Don't ship a dark invert; the shipped world is the light desk."
+    ]
+  }
+}

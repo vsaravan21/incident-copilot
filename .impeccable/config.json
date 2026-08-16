@@ -1,0 +1,15 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "11px",
+        "createdAt": "2026-08-16T20:48:38.180Z",
+        "reason": "DESIGN.md documents the composer keyboard hint at 11px tabular-nums; not a new type step."
+      }
+    ]
+  }
+}
